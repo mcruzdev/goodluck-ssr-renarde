@@ -1,0 +1,15 @@
+{@java.lang.String drawingCode}
+
+{#include main.html}
+    {#title}GoodLuck!{/title}
+
+    <form method="post" action="{uri:Drawing.addParticipant(drawingCode)}">
+        {#authenticityToken/}
+        <div class="participant-form">
+            <label for="email">Your best email</label>
+            <input placeholder="email@email.com" name="email" id="email" type="email" class="input">
+            <button type="submit" class="button">Enter on drawing!</button>
+        </div>
+
+    </form>
+{/include}

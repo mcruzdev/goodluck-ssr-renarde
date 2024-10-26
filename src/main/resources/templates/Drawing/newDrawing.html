@@ -1,0 +1,35 @@
+{@dev.matheuscruz.model.NewDrawingModel model}
+
+{#include main.html}
+{#title}GoodLuck!{/title}
+
+    <div class="qrcode">
+        {#qrcode value=model.drawingUrl/}
+    </div>
+    <p>Scan the QRCode to participate</p>
+    <a class="button" href="{uri:Drawing.winner(model.drawingCode)}">Start</a>
+
+    {#if model.message}
+        <span class="message-error">{model.message}</span>
+    {/if}
+    <span id="participants">Participants: {model.participants}</span>
+
+<script>
+    const eachOneSecond = 1000;
+    (function () {
+        setInterval(function () {
+            fetch("/api/drawings/{model.drawingCode}").then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                if (data.participants) {
+                    const el = document.getElementById("participants");
+                    el.innerText = `Participants: $\{[].concat(data.participants.length)\}`;
+                }
+            }).catch(err => {
+                console.error(err)
+            })
+        }, eachOneSecond)
+    })();
+
+</script>
+{/include}

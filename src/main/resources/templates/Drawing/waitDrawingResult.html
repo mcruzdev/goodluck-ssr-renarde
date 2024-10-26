@@ -1,0 +1,25 @@
+{@java.lang.String drawingCode}
+
+{#include main.html}
+{#title}GoodLuck! You are waiting the result{/title}
+<p id="wait" class="waiting">Waiting...</p>
+<p id="winner" class="winner hidden"></p>
+
+<script>
+    const eachOneSecond = 1000;
+    (function () {
+        const waitWinner = setInterval(function () {
+            fetch("/api/drawings/{drawingCode}/result").then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                if (data.winner) {
+                    location.href = "/Drawing/winner/{drawingCode}";
+                }
+            }).catch(err => {
+                console.error(err)
+            })
+        }, eachOneSecond)
+    })();
+
+</script>
+{/include}

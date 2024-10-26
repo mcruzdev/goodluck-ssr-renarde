@@ -1,0 +1,59 @@
+@import "../variables";
+
+.input {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: $white;
+}
+
+.participant-form {
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+
+
+  .input {
+    border: none;
+    outline: none;
+    padding: 8px;
+    color: $black;
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+}
+
+.winner {
+  color: $secondary-light;
+  font-size: 24px;
+}
+
+.waiting {
+  color: $secondary-light;
+  font-size: 24px;
+  animation: pulse 10s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    color: $secondary-light;
+  }
+
+  50% {
+    color: #37AFE1;
+  }
+
+  100% {
+    color: $secondary;
+  }
+}

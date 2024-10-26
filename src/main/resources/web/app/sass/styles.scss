@@ -1,0 +1,62 @@
+@import "variables";
+@import "pages/home";
+@import "pages/drawing";
+
+body {
+  background-color: $primary;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto Slab", serif;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  padding: 12px;
+  background-color: $secondary-light;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  justify-content: center;
+  border: solid 2px $black;
+  width: 100%;
+
+  &:hover {
+    background-color: $secondary;
+  }
+}
+
+.qrcode {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.message-error {
+  margin: 4px;
+  color: $white;
+}
